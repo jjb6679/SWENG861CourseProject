@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,7 +9,19 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
+
 <body>
-    Here is my text.
+    <main>
+        <h1>Vanilla JavaScript App</h1>
+        <p>Loading content from the API: <b id="name">...</b></p>
+    </main>
+
+    <script>
+        (async function () {
+            const { text } = await (await fetch(`/api/message`)).json();
+            document.querySelector('#name').textContent = text;
+        }());
+    </script>
 </body>
+
 </html>

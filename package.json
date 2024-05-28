@@ -15,5 +15,6 @@
   "homepage": "https://github.com/jjb6679/SWENG861CourseProject#readme",
   "scripts": {
     "index.test": "mocha"
-  }
+  },
+  "type": "module"
 }

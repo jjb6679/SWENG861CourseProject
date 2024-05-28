@@ -15,7 +15,8 @@
   },
   "homepage": "https://github.com/jjb6679/SWENG861CourseProject#readme",
   "scripts": {
-    "index.test": "mocha"
+    "index.test": "mocha",
+    "build-prod": "ng build --prod"
   },
   "engines": {
     "node": ">15"

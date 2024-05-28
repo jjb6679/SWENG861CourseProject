@@ -1,8 +1,4 @@
 {
-  "scripts": {
-    "index.test": "mocha",
-    "build:azure": "RUN_BUILD_COMMAND"
-  },
   "name": "sweng861courseproject",
   "version": "1.0.0",
   "description": "",
@@ -16,5 +12,8 @@
   "bugs": {
     "url": "https://github.com/jjb6679/SWENG861CourseProject/issues"
   },
-  "homepage": "https://github.com/jjb6679/SWENG861CourseProject#readme"
+  "homepage": "https://github.com/jjb6679/SWENG861CourseProject#readme",
+  "scripts": {
+    "index.test": "mocha"
+  }
 }

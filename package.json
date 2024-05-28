@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "index.test": "mocha"
+    "index.test": "mocha",
+    "build:azure": "RUN_BUILD_COMMAND"
   }
 }

@@ -2,5 +2,19 @@
   "scripts": {
     "index.test": "mocha",
     "build:azure": "RUN_BUILD_COMMAND"
-  }
+  },
+  "name": "sweng861courseproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjb6679/SWENG861CourseProject.git"
+  },
+  "author": "Jacob Black",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjb6679/SWENG861CourseProject/issues"
+  },
+  "homepage": "https://github.com/jjb6679/SWENG861CourseProject#readme"
 }

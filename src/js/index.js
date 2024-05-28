@@ -1,6 +1,4 @@
-import "./addRequire.js";
-
-const pg = require('pg');
+import { Client } from 'pg';
 
 const config = {
     host: '<process.env.host>.postgres.database.azure.com',
@@ -13,7 +11,7 @@ const config = {
     ssl: true
 };
 
-const client = new pg.Client(config);
+const client = new Client(config);
 
 client.connect(err => {
     if (err) throw err;

@@ -1,3 +1,5 @@
+import "./addRequire.js";
+
 const pg = require('pg');
 
 const config = {

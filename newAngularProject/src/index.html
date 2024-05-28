@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SWENG 861: Course Project</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <main>
+        <h1>Vanilla JavaScript App</h1>
+        <h2><a href='second_page.html'>Link to next page</a></h2>
+        <p>Loading content from the API: <b id="name">...</b></p>
+    </main>
+
+    <script>
+        (async function () {
+            const { text } = await (await fetch(`/api/message`)).json();
+            document.querySelector('#name').textContent = text;
+        }());
+    </script>
+  <app-root></app-root>
+</body>
+</html>

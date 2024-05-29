@@ -1,17 +1,17 @@
-import { Client } from 'pg';
+const pg = require('pg');
 
 const config = {
-    host: '<process.env.host>.postgres.database.azure.com',
+    host: process.env.HOST,
     // Do not hard code your username and password.
     // Consider using Node environment variables.
-    user: '<process.env.user>',     
-    password: '<process.env.pw>',
-    database: '<process.env.db>',
+    user: process.env.USER,     
+    password: process.env.PW,
+    database: process.env.DB,
     port: 5432,
     ssl: true
 };
 
-const client = new Client(config);
+const client = new pg.Client(config);
 
 client.connect(err => {
     if (err) throw err;

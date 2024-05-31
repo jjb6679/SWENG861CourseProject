@@ -1,13 +1,15 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-  <meta charset="utf-8">
-  <title>SWENG 861: Course Project</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="index.js"></script>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SWENG 861: Course Project</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/index.css'>
+    <script src='../js/index.js'></script>
 </head>
+
 <body>
     <main>
         <h1>Vanilla JavaScript App</h1>
@@ -21,6 +23,80 @@
             document.querySelector('#name').textContent = text;
         }());
     </script>
-  <app-root></app-root>
+
+    <h1>Static Web Apps Database Connections</h1>
+    <blockquote>
+        Open the console in the browser developer tools to see the API responses.
+    </blockquote>
+    <div>
+        <button id="list" onclick="list()">List</button>
+        <button id="get" onclick="get()">Get</button>
+        <button id="update" onclick="update()">Update</button>
+        <button id="create" onclick="create()">Create</button>
+        <button id="delete" onclick="del()">Delete</button>
+    </div>
+    <script>
+        async function list() {
+            const endpoint = '/data-api/rest/Person';
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            console.table(data.value);
+        }
+
+        async function get() {
+            const id = 1;
+            const endpoint = `/data-api/rest/Person/Id`;
+            const response = await fetch(`${endpoint}/${id}`);
+            const result = await response.json();
+            console.table(result.value);
+        }
+
+        async function update() {
+
+            const id = 1;
+            const data = {
+                Name: "Molly"
+            };
+
+            const endpoint = '/data-api/rest/Person/Id';
+            const response = await fetch(`${endpoint}/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            console.table(result.value);
+        }
+
+        async function create() {
+
+            const data = {
+                Name: "Pedro"
+            };
+
+            const endpoint = `/data-api/rest/Person/`;
+            const response = await fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            console.table(result.value);
+        }
+
+        async function del() {
+            const id = 3;
+            const endpoint = '/data-api/rest/Person/Id';
+            const response = await fetch(`${endpoint}/${id}`, {
+                method: "DELETE"
+            });
+            if (response.ok) {
+                console.log(`Record deleted: ${id}`)
+            } else {
+                console.log(response);
+            }
+        }
+    </script>
 </body>
+
 </html>

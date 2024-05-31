@@ -39,7 +39,7 @@
         async function list() {
             const endpoint = '/data-api/rest/Person';
             const response = await fetch(endpoint);
-            const data = await response.json();
+            const data = await response.text();
             console.table(data.value);
         }
 
@@ -47,7 +47,7 @@
             const id = 1;
             const endpoint = `/data-api/rest/Person/Id`;
             const response = await fetch(`${endpoint}/${id}`);
-            const result = await response.json();
+            const result = await response.text();
             console.table(result.value);
         }
 
